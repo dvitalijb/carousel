@@ -1,0 +1,47 @@
+body {
+    width: 100%;
+}
+
+#left,
+#right {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    top: -92px;
+}
+
+#container {
+    width: 420px;
+    overflow: hidden;
+    margin: auto;
+}
+
+#inner {
+    width: 1400px;
+    height: 130px;
+    font-size: 0;
+    margin: auto;
+}
+
+#left {
+    transform: rotate(180deg);
+    left: -200px;
+}
+
+#right {
+    left: 200px;
+}
+
+#arrows {
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    margin: 0 5px;
+}
+
+.disabled {
+    filter: alpha(Opacity=50);
+    opacity: 0.1;
+}
