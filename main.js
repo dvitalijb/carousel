@@ -8,6 +8,7 @@ function moveImg(event) {
     const scrollStepMin = 0;
     const leftArrow = arrows.children[0];
     const rightArrow = arrows.children[1];
+
     if (arrow === 'right') {
         container.scrollLeft += scrollStep;
     } else if (arrow === 'left') {
