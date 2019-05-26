@@ -1,22 +1,27 @@
 const arrows = document.getElementById('arrows');
 const container = document.getElementById('container');
-const rightArrow = document.getElementById('right');
-const leftArrow = document.getElementById('left');
 
 function moveImg(event) {
-    const idButton = event.target.id;
-    if (idButton === 'right') {
-        container.scrollLeft += 420;
-        leftArrow.classList.remove('disabled');
-        if (container.scrollLeft === 980) {
-            rightArrow.classList.add('disabled');
-        }
-    } else if (idButton === 'left') {
-        container.scrollLeft -= 420;
-        rightArrow.classList.remove('disabled');
-        if (container.scrollLeft === 0) {
-            leftArrow.classList.add('disabled');
-        }
+    const { arrow } = event.target.dataset;
+    const scrollStep = 420;
+    const scrollStepMax = 980;
+    const scrollStepMin = 0;
+    const leftArrow = arrows.children[0];
+    const rightArrow = arrows.children[1];
+    if (arrow === 'right') {
+        container.scrollLeft += scrollStep;
+    } else if (arrow === 'left') {
+        container.scrollLeft -= scrollStep;
+    }
+    if (container.scrollLeft === scrollStepMax) {
+        rightArrow.disabled = !rightArrow.disabled;
+    }
+    if (container.scrollLeft === scrollStepMin) {
+        leftArrow.disabled = !leftArrow.disabled;
+    }
+    if (container.scrollLeft > scrollStepMin && container.scrollLeft < scrollStepMax - 1) {
+        rightArrow.disabled = false;
+        leftArrow.disabled = false;
     }
 }
 
